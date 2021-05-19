@@ -23,8 +23,8 @@ public class Person {
 	public Salutation getSalutation() {
 		return salutation;
 	}
-	public void setSalutation(Salutation salutation) {
-		this.salutation = salutation;
+	public void setSalutation(String string) {
+		this.salutation = Salutation.fromString(string);
 	}
 
 	
