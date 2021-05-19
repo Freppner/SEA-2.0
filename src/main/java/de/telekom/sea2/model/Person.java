@@ -6,11 +6,20 @@ public class Person {
 	private long id;
 	private Salutation salutation;
 	private String firstname;
-
 	private String lastname;
 
 	
 	
+	
+	
+	public Person (long id, String salutation, String firstname, String lastname) {
+		this.id=id;
+		this.salutation=Salutation.fromString(salutation);
+		this.firstname=firstname;
+		this.lastname=lastname;
+	}
+	
+		
 	// Getters and Setters
 	
 	public long getId() {
