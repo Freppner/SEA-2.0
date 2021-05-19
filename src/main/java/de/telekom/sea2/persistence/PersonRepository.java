@@ -1,5 +1,5 @@
 package de.telekom.sea2.persistence;
 
-public class Repository {
+public class PersonRepository {
 
 }
