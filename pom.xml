@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" >
     <modelVersion>4.0.0</modelVersion>
     <!-- Das eigentliche Projekt -->
-    <groupId>de.telekom.jdbcchallenge</groupId><!-- -->
-    <artifactId>JDBCChallenge</artifactId><!-- -->
+    <groupId>de.telekom.SEA-2.0</groupId><!-- -->
+    <artifactId>SEA-2.0</artifactId><!-- -->
     <version>1.0</version><!-- -->
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -21,7 +21,7 @@
                  <configuration>
                       <archive>
                           <manifest>
-                              <mainClass>de.telekom.jdbcchallenge.Main</mainClass>
+                              <mainClass>de.telekom.SEA-2.0.Main</mainClass>
                           </manifest>
                       </archive>
                  </configuration>
