@@ -32,6 +32,26 @@ public enum Salutation {
 	}
 	
 	
+	public static Salutation fromByte( Byte bite ) {
+		
+		switch (bite) {
+			case 0:
+				return MR;
+
+			case 1:
+				 return MRS;
+
+			case 3:
+				 return OTHER;
+
+			default: throw new IllegalArgumentException("Es wurde ein nicht definierter Wert in das Feld Salutation eingegeben: "+bite);
+		}
+	}
+	
+	
+	
+	
+	
 	// Definition/ Formatierung des Rückgabewertes für die toString-Methode
 	@Override
 	public String toString() {
@@ -44,5 +64,19 @@ public enum Salutation {
 			default: throw new IllegalArgumentException("Es wurde ein nicht definierter Wert in dem Feld Salutation vorgefunden: "+this);
 		}
 	}
+	
+
+	public Byte toByte() {
+		
+		switch( this ) {
+			case MR:return 		0;
+			case MRS:return		1;
+			case OTHER:return	2;
+			
+			default: throw new IllegalArgumentException("Es wurde ein nicht definierter Wert in dem Feld Salutation vorgefunden: "+this);
+		}	
+	}
+	
+
 		
 }
