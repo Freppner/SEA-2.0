@@ -8,7 +8,9 @@ public enum Salutation {
 
 
 	
-	// Konstruktor zur Normierung der Salutation (MR, MRS, OTHER)
+	// Eine Methode zur Normierung der Salutation (MR, MRS, OTHER)
+	// Static die Methode kann ohne Instanz aufgerufen werden.
+	// Die Methode heißt fromString.
 	public static Salutation fromString( String string ) {
 		
 		switch (string.toUpperCase()) {
@@ -30,7 +32,7 @@ public enum Salutation {
 	}
 	
 	
-	// Definition/ Formatierung des Rückgabe Werte für die toString-Methode
+	// Definition/ Formatierung des Rückgabewertes für die toString-Methode
 	@Override
 	public String toString() {
 		
