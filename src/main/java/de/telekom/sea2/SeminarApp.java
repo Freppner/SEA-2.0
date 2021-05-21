@@ -72,7 +72,28 @@ public class SeminarApp {
 				e.printStackTrace();
 			}
 			
+// person erstellen
 			
+			long id=			11;
+			String salutation=	"MR";
+			String firstName=	"Peter";
+			String lastName=	"Hoeppner";
+			
+			Person person = new Person (id, salutation, firstName, lastName);
+			
+			
+			try {
+				personRepository.dbInit();
+				Boolean result = personRepository.create(person);
+
+				System.out.println("___________________________________________________________________");	
+				System.out.println(string);
+				System.out.println("___________________________________________________________________");
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			
 			

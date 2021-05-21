@@ -6,7 +6,6 @@ public enum Salutation {
 		MRS,
 		OTHER;
 
-
 	
 	// Eine Methode zur Normierung der Salutation (MR, MRS, OTHER)
 	// Static die Methode kann ohne Instanz aufgerufen werden.
@@ -48,9 +47,7 @@ public enum Salutation {
 		}
 	}
 	
-	
-	
-	
+		
 	
 	// Definition/ Formatierung des Rückgabewertes für die toString-Methode
 	@Override
@@ -76,7 +73,5 @@ public enum Salutation {
 			default: throw new IllegalArgumentException("Es wurde ein nicht definierter Wert in dem Feld Salutation vorgefunden: "+this);
 		}	
 	}
-	
-
-		
+			
 }

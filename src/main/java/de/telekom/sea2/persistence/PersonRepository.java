@@ -37,12 +37,37 @@ public class PersonRepository {
 	}
 	
 	
+/*	
+	public boolean update(Person person) throws SQLException {
+		Statement statement = connection.createStatement();
+		
+		long id=			person.getId();
+		byte salutation =	person.getSalutation().toByte();	// es wird erst die Methode getSalutation und im Anschluss toByte aufgerufen
+		String firstName=	person.getFirstname();
+		String lastName=	person.getLastname();
+		
+		String sql=			("update personen ( ID, ANREDE, VORNAME, NACHNAME) values (id,byte,firtsName,lastName)");
+		boolean result=		statment.execute(sql);
+		
+		return result;
+	}
+	
+*/	
 	
 	public boolean create(Person person) throws SQLException {
 		Statement statement = connection.createStatement();
 		
-		return false;
+		long id=			person.getId();
+		byte salutation =	person.getSalutation().toByte();	// es wird erst die Methode getSalutation und im Anschluss toByte aufgerufen
+		String firstName=	person.getFirstname();
+		String lastName=	person.getLastname();
+		
+		String sql=			("insert into personen ( ID, ANREDE, VORNAME, NACHNAME) values (id,byte,firtsName,lastName)");
+		boolean result=		statment.execute(sql);
+		
+		return result;
 	}
+	
 	
 	
 		
