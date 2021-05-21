@@ -35,11 +35,9 @@ public class SeminarApp {
 
 			
 
-			PersonRepository personRepositoryAll = new PersonRepository();
 			
 			try {
-				personRepositoryAll.dbInit();
-				ArrayList personListAll = personRepositoryAll.getAll();
+				ArrayList personListAll = personRepository.getAll();
 				
 				for (int i = 0; i < personListAll.size(); i++) {
 					Person person = (Person)personListAll.get(i);
@@ -58,7 +56,6 @@ public class SeminarApp {
 			}
 			
 			
-			PersonRepository personRepositoryDelete = new PersonRepository();
 			
 			try {
 				personRepository.dbInit();
