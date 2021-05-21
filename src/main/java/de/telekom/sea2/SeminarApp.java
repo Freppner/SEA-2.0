@@ -58,7 +58,15 @@ public class SeminarApp {
 			}
 			
 			
+			PersonRepository personRepositoryDelete = new PersonRepository();
 			
+			try {
+				personRepository.dbInit();
+				boolean result = personRepository.delete(1);
+			}catch(Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			
 			
