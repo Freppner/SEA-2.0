@@ -25,7 +25,7 @@ public class SeminarApp {
 			}
 		
 		
-		
+			// Abruf einer einzelnen Person	
 			try {
 				Person person = personRepository.get(2);
 				
@@ -46,7 +46,7 @@ public class SeminarApp {
 
 			
 
-			
+			// Abruf aller Personen
 			try {
 				ArrayList personListAll = personRepository.getAll();
 				
@@ -69,23 +69,21 @@ public class SeminarApp {
 			}
 			
 			
-	/*		
+			// Löschen einer einzelner Person
 			try {
 				personRepository.dbInit();
-				boolean result = personRepository.delete(1);
-				System.out.println("___________________________________________________________________");
-				System.out.println(result);
+				boolean result = personRepository.delete(11);
 				
 			}catch(Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		*/
+		
 			
 			
-// Person in die Datenbank eintragen
+ 			// Person in die Datenbank eintragen
 			
-			long id=			1L;
+			long id=			11L;
 			String salutation=	"MR";
 			String firstName=	"Peter";
 			String lastName=	"Hoeppner";
@@ -96,10 +94,6 @@ public class SeminarApp {
 			try {
 				
 				Boolean result = personRepository.create(person);
-
-				System.out.println("___________________________________________________________________");	
-				System.out.println(result);
-				System.out.println("___________________________________________________________________");
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

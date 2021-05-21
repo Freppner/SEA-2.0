@@ -12,19 +12,14 @@ import de.telekom.sea2.model.Salutation;
 
 
 
-
 public class PersonRepository {
-	
 	
 	final static String DRIVER = "org.mariadb.jdbc.Driver";
 	final static String URL = "jdbc:mysql://localhost:3306/seadb?user=seauser&password=seapass";
 	
 	Connection connection;
-	Statement statment;
+	Statement statement;
 	ResultSet resultSet;
-
-	
-	
 	
 	
 	public void dbInit() throws ClassNotFoundException, SQLException {
@@ -37,25 +32,9 @@ public class PersonRepository {
 	}
 	
 	
-/*	
-	public boolean update(Person person) throws SQLException {
-		Statement statement = connection.createStatement();
-		
-		long id=			person.getId();
-		byte salutation =	person.getSalutation().toByte();	// es wird erst die Methode getSalutation und im Anschluss toByte aufgerufen
-		String firstName=	person.getFirstname();
-		String lastName=	person.getLastname();
-		
-		String sql=			("update personen ( ID, ANREDE, VORNAME, NACHNAME) values (id,byte,firtsName,lastName)");
-		boolean result=		statment.execute(sql);
-		
-		return result;
-	}
 	
-*/	
 	
 	public boolean create(Person person) throws SQLException {
-		
 		
 		long id=			person.getId();
 		byte salutation =	person.getSalutation().toByte();	// es wird erst die Methode getSalutation und im Anschluss toByte aufgerufen
@@ -63,14 +42,13 @@ public class PersonRepository {
 		String lastName=	person.getLastname();
 		
 		String sql=			("insert into personen ( ID, ANREDE, VORNAME, NACHNAME) values ("+id+","+salutation+",'"+firstName+"','"+lastName+"');");
-		System.out.println ( sql );
-
 		
   		Statement statement = connection.createStatement();
-  		boolean result=		statment.execute(sql);
+  		boolean result=		statement.execute(sql);
 		
 		return result;
 	}
+
 	
 	
 	
@@ -91,6 +69,7 @@ public class PersonRepository {
 		}
 	}
 	
+
 	
 	public ArrayList getAll() throws SQLException {
 		Statement statement = connection.createStatement();							// Öffnet ein Abfragekanal zur Datenbank für genau ein Statment
@@ -126,10 +105,8 @@ public class PersonRepository {
 	public boolean delete(long id) throws SQLException {
 		Statement statement = connection.createStatement();							// Öffnet ein Abfragekanal zur Datenbank für genau ein Statment
 		boolean result = statement.execute( "delete from personen where id="+id);
-		System.out.println(result);
 		return result;
 	}
-
 	
 	
 	
