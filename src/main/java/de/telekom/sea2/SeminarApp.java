@@ -85,7 +85,7 @@ public class SeminarApp {
 			
 			long id=			11L;
 			String salutation=	"MR";
-			String firstName=	"Peter";
+			String firstName=	"Roland";
 			String lastName=	"Hoeppner";
 			
 			Person person = new Person (id, salutation, firstName, lastName);

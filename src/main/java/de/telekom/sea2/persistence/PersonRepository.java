@@ -2,6 +2,7 @@ package de.telekom.sea2.persistence;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -33,7 +34,7 @@ public class PersonRepository {
 	
 	
 	
-	
+/* Statment	
 	public boolean create(Person person) throws SQLException {
 		
 		long id=			person.getId();
@@ -48,7 +49,32 @@ public class PersonRepository {
 		
 		return result;
 	}
+*/
+	
+	// Prepstatment	
+	public boolean create(Person person) throws SQLException {
+		
+		long id=			person.getId();
+		byte salutation =	person.getSalutation().toByte();	// es wird erst die Methode getSalutation und im Anschluss toByte aufgerufen
+		String firstName=	person.getFirstname();
+		String lastName=	person.getLastname();
+		
+		String sql=			("insert into personen ( ID, ANREDE, VORNAME, NACHNAME) values (?,?,?,?);");
+		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+  		
+		preparedStatement.setLong(1, id);
+		preparedStatement.setByte(2, salutation);
+		preparedStatement.setString(3, firstName);
+		preparedStatement.setString(4, lastName);
+  		
+  		boolean result=		preparedStatement.execute(sql);
+		
+		return result;
+	}
 
+	
+	
+	
 	
 	
 	
