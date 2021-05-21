@@ -16,7 +16,7 @@ import de.telekom.sea2.model.Salutation;
 public class PersonRepository {
 	
 	
-	final static String DRIVER = "org.maria.jdbc.Driver";
+	final static String DRIVER = "org.mariadb.jdbc.Driver";
 	final static String URL = "jdbc:mysql://localhost:3306/seadb?user=seauser&password=seapass";
 	
 	Connection connection;
@@ -100,7 +100,7 @@ public class PersonRepository {
 	public boolean delete(long id) throws SQLException {
 		Statement statement = connection.createStatement();							// Öffnet ein Abfragekanal zur Datenbank für genau ein Statment
 		boolean result = statement.execute( "delete from personen where id="+id);
-	
+		System.out.println(result);
 		return result;
 	}
 
