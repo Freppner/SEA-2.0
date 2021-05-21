@@ -7,10 +7,17 @@ public class Person {
 	private Salutation salutation;
 	private String firstname;
 	private String lastname;
+	
 
 	
 	
-	
+	public Person (long id, Salutation salutation, String firstname, String lastname) {
+		this.id=id;
+		this.salutation=salutation;
+		this.firstname=firstname;
+		this.lastname=lastname;
+	}
+		
 	
 	public Person (long id, String salutation, String firstname, String lastname) {
 		this.id=id;
@@ -18,6 +25,7 @@ public class Person {
 		this.firstname=firstname;
 		this.lastname=lastname;
 	}
+
 	
 		
 	// Getters and Setters
@@ -51,9 +59,6 @@ public class Person {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}	
-	
-	
-	
 	
 	
 	
