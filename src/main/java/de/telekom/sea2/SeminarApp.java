@@ -16,9 +16,18 @@ public class SeminarApp {
 		
 		PersonRepository personRepository = new PersonRepository();
 		
+
 			try {
 				personRepository.dbInit();
-				Person person = personRepository.get(1);
+			} catch (ClassNotFoundException | SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		
+		
+		
+			try {
+				Person person = personRepository.get(2);
 				
 				String string= String.format("%s %s %s %s", 
 						person.getId(),
@@ -60,7 +69,7 @@ public class SeminarApp {
 			}
 			
 			
-			
+	/*		
 			try {
 				personRepository.dbInit();
 				boolean result = personRepository.delete(1);
@@ -71,10 +80,12 @@ public class SeminarApp {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		*/
 			
-// person erstellen
 			
-			long id=			11;
+// Person in die Datenbank eintragen
+			
+			long id=			1L;
 			String salutation=	"MR";
 			String firstName=	"Peter";
 			String lastName=	"Hoeppner";
@@ -83,26 +94,17 @@ public class SeminarApp {
 			
 			
 			try {
-				personRepository.dbInit();
+				
 				Boolean result = personRepository.create(person);
 
 				System.out.println("___________________________________________________________________");	
-				System.out.println(string);
+				System.out.println(result);
 				System.out.println("___________________________________________________________________");
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			
 		
 		

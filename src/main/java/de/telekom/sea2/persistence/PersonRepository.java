@@ -55,22 +55,23 @@ public class PersonRepository {
 */	
 	
 	public boolean create(Person person) throws SQLException {
-		Statement statement = connection.createStatement();
+		
 		
 		long id=			person.getId();
 		byte salutation =	person.getSalutation().toByte();	// es wird erst die Methode getSalutation und im Anschluss toByte aufgerufen
 		String firstName=	person.getFirstname();
 		String lastName=	person.getLastname();
 		
-		String sql=			("insert into personen ( ID, ANREDE, VORNAME, NACHNAME) values (id,byte,firtsName,lastName)");
-		boolean result=		statment.execute(sql);
+		String sql=			("insert into personen ( ID, ANREDE, VORNAME, NACHNAME) values ("+id+","+salutation+",'"+firstName+"','"+lastName+"');");
+		System.out.println ( sql );
+
+		
+  		Statement statement = connection.createStatement();
+  		boolean result=		statment.execute(sql);
 		
 		return result;
 	}
 	
-	
-	
-		
 	
 	
 	
