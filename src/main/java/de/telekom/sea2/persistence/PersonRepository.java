@@ -91,16 +91,20 @@ public class PersonRepository {
 	
 	
 	
-	public boolean delete(Person person) {
+	public boolean delete(Person person) throws SQLException {
 		long id = person.getId();
-		delete(id);
-		return false;
+		return delete(id);
 	}
 
 	
-	public boolean delete(long id) {
-		
-		return false;
+	public boolean delete(long id) throws SQLException {
+		Statement statement = connection.createStatement();							// Öffnet ein Abfragekanal zur Datenbank für genau ein Statment
+		boolean result = statement.execute( "delete from personen where id="+id);
+	
+		return result;
 	}
+
+	
+	
 	
 }
