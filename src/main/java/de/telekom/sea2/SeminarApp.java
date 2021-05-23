@@ -71,19 +71,29 @@ public class SeminarApp {
 			
 			// Löschen einer einzelner Person
 			try {
-				personRepository.dbInit();
-				boolean result = personRepository.delete(11);
+				boolean result = personRepository.delete(2);
 				
 			}catch(Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		
+		
+
+			// Loeschen aller Eintraege
+			try {
+				boolean result = personRepository.deleteAll();
+
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			
 			
 			
  			// Person in die Datenbank eintragen
-			
-			long id=			11L;
+			long id=			13L;
 			String salutation=	"MR";
 			String firstName=	"Roland";
 			String lastName=	"Hoeppner";
@@ -92,14 +102,16 @@ public class SeminarApp {
 			
 			
 			try {
-				Boolean result = personRepository.create(person);
+				boolean result = personRepository.create(person);
 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
-		
+			
+
+	
 		
 		
 		

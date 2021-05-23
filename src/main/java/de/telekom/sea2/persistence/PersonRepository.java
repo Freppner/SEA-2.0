@@ -59,7 +59,7 @@ public class PersonRepository {
 		String firstName=	person.getFirstname();
 		String lastName=	person.getLastname();
 		
-		String sql=			("insert into personen ( ID, ANREDE, VORNAME, NACHNAME) values (?,?,?,?);");
+		String sql=			("insert into personen ( ID, ANREDE, VORNAME, NACHNAME) values (?,?,?,?)");
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
   		
 		preparedStatement.setLong(1, id);
@@ -67,7 +67,7 @@ public class PersonRepository {
 		preparedStatement.setString(3, firstName);
 		preparedStatement.setString(4, lastName);
   		
-  		boolean result=		preparedStatement.execute(sql);
+  		boolean result=		preparedStatement.execute();
 		
 		return result;
 	}
@@ -137,12 +137,9 @@ public class PersonRepository {
 	
 	public boolean deleteAll() throws SQLException {	
 		Statement statement = connection.createStatement();        
-		boolean result = statement.execute("delete from persons");     
+		boolean result = statement.execute("delete from personen");     
 		return result;
 	}
-	
-	
-	
 	
 	
 	
