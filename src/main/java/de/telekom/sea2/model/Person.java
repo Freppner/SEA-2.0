@@ -5,19 +5,27 @@ public class Person {
 	
 	private long id;
 	private Salutation salutation;
-	private String firstname;
-	private String lastname;
+	private String firstName;
+	private String lastName;
+	
 
 	
 	
-	
-	
-	public Person (long id, String salutation, String firstname, String lastname) {
-		this.id=id;
-		this.salutation=Salutation.fromString(salutation);
-		this.firstname=firstname;
-		this.lastname=lastname;
+	public Person (long id, Salutation salutation, String firstName, String lastName) {
+		this.id			=id;
+		this.salutation	=salutation;
+		this.firstName	=firstName;
+		this.lastName	=lastName;
 	}
+		
+	
+	public Person (long id, String salutation, String firstName, String lastName) {
+		this.id			=id;
+		this.salutation	=Salutation.fromString(salutation);
+		this.firstName	=firstName;
+		this.lastName	=lastName;
+	}
+
 	
 		
 	// Getters and Setters
@@ -38,22 +46,19 @@ public class Person {
 
 	
 	public String getFirstname() {
-		return firstname;
+		return firstName;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstname(String firstName) {
+		this.firstName = firstName;
 	}
 	
 	
 	public String getLastname() {
-		return lastname;
+		return lastName;
 	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastname(String lastName) {
+		this.lastName = lastName;
 	}	
-	
-	
-	
 	
 	
 	
