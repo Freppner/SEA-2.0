@@ -34,6 +34,20 @@ public class PersonRepository {
 	
 	
 	
+	
+	// Hoechste ID in der DB bestimmen.
+	public long maxId() throws SQLException {
+		Statement statement = connection.createStatement();	
+		String sql=			("select max (id) from personen");
+		resultSet = statement.executeQuery(sql);
+		resultSet.next();
+		return resultSet.getLong(1);
+	}
+	
+	
+	
+	
+	
 /* Statment	
 	public boolean create(Person person) throws SQLException {
 		
@@ -51,10 +65,15 @@ public class PersonRepository {
 	}
 */
 	
+	
+	
+	
+	
+	
 	// Prepstatment	
 	public boolean create(Person person) throws SQLException {
 		
-		long id=			person.getId();
+		long id=			maxId()+1;
 		byte salutation =	person.getSalutation().toByte();	// es wird erst die Methode getSalutation und im Anschluss toByte aufgerufen
 		String firstName=	person.getFirstname();
 		String lastName=	person.getLastname();
@@ -72,10 +91,6 @@ public class PersonRepository {
 		return result;
 	}
 
-	
-	
-	
-	
 	
 	
 	
@@ -140,9 +155,6 @@ public class PersonRepository {
 		boolean result = statement.execute("delete from personen");     
 		return result;
 	}
-	
-	
-	
 	
 	
 	
