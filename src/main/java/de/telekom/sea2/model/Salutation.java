@@ -6,9 +6,10 @@ public enum Salutation {
 		MRS,
 		OTHER;
 
-
 	
-	// Konstruktor zur Normierung der Salutation (MR, MRS, OTHER)
+	// Eine Methode zur Normierung der Salutation (MR, MRS, OTHER)
+	// Static die Methode kann ohne Instanz aufgerufen werden.
+	// Die Methode heißt fromString.
 	public static Salutation fromString( String string ) {
 		
 		switch (string.toUpperCase()) {
@@ -30,7 +31,25 @@ public enum Salutation {
 	}
 	
 	
-	// Definition/ Formatierung des Rückgabe Werte für die toString-Methode
+	public static Salutation fromByte( Byte bite ) {
+		
+		switch (bite) {
+			case 0:
+				return MR;
+
+			case 1:
+				 return MRS;
+
+			case 3:
+				 return OTHER;
+
+			default: throw new IllegalArgumentException("Es wurde ein nicht definierter Wert in das Feld Salutation eingegeben: "+bite);
+		}
+	}
+	
+		
+	
+	// Definition/ Formatierung des Rückgabewertes für die toString-Methode
 	@Override
 	public String toString() {
 		
@@ -42,5 +61,17 @@ public enum Salutation {
 			default: throw new IllegalArgumentException("Es wurde ein nicht definierter Wert in dem Feld Salutation vorgefunden: "+this);
 		}
 	}
+	
+
+	public Byte toByte() {
 		
+		switch( this ) {
+			case MR:return 		0;
+			case MRS:return		1;
+			case OTHER:return	2;
+			
+			default: throw new IllegalArgumentException("Es wurde ein nicht definierter Wert in dem Feld Salutation vorgefunden: "+this);
+		}	
+	}
+			
 }
