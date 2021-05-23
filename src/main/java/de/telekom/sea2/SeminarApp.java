@@ -92,9 +92,8 @@ public class SeminarApp {
 			
 			
 			try {
-				
 				Boolean result = personRepository.create(person);
-				
+
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

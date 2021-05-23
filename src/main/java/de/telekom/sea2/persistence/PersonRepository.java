@@ -135,5 +135,19 @@ public class PersonRepository {
 	}
 	
 	
+	public boolean deleteAll() throws SQLException {	
+		Statement statement = connection.createStatement();        
+		boolean result = statement.execute("delete from persons");     
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
