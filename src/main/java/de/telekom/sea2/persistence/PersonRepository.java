@@ -15,8 +15,12 @@ import de.telekom.sea2.model.Salutation;
 
 public class PersonRepository {
 	
-	final static String DRIVER = "org.mariadb.jdbc.Driver";
-	final static String URL = "jdbc:mysql://localhost:3306/seadb?user=seauser&password=seapass";
+	final static String DRIVER		= "org.mariadb.jdbc.Driver";
+	final static String dbUser		= "seauser";
+	final static String dbPassword	= "seapass";
+	//final static String URL = String.format("jdbc:mysql://localhost:3306/seadb?user="+dbUser+"&password="+dbPassword);
+	final static String URL = String.format("jdbc:mysql://localhost:3306/seadb?user=%s&password=%s", dbUser , dbPassword);
+	
 	
 	Connection connection;
 	
