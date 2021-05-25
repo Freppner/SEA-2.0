@@ -19,8 +19,6 @@ public class PersonRepository {
 	final static String URL = "jdbc:mysql://localhost:3306/seadb?user=seauser&password=seapass";
 	
 	Connection connection;
-	Statement statement;
-	ResultSet resultSet;
 	
 	
 	public void dbInit() throws ClassNotFoundException, SQLException {
@@ -39,7 +37,7 @@ public class PersonRepository {
 	public long maxId() throws SQLException {
 		Statement statement = connection.createStatement();	
 		String sql=			("select max (id) from personen");
-		resultSet = statement.executeQuery(sql);
+		ResultSet resultSet = statement.executeQuery(sql);
 		resultSet.next();
 		return resultSet.getLong(1);
 	}
@@ -73,7 +71,7 @@ public class PersonRepository {
 	// Prepstatment	
 	public boolean create(Person person) throws SQLException {
 		
-		long id=			person.getId();
+		long id=			maxId()+1;
 		byte salutation =	person.getSalutation().toByte();	// es wird erst die Methode getSalutation und im Anschluss toByte aufgerufen
 		String firstName=	person.getFirstname();
 		String lastName=	person.getLastname();
@@ -93,10 +91,35 @@ public class PersonRepository {
 
 	
 	
+	public boolean update(Person person) throws SQLException {
+		
+		long id=			person.getId();
+		byte salutation =	person.getSalutation().toByte();	// es wird erst die Methode getSalutation und im Anschluss toByte aufgerufen
+		String firstName=	person.getFirstname();
+		String lastName=	person.getLastname();
+		
+		String sql=			("update personen  set ANREDE=?, VORNAME=?, NACHNAME=? where Id=?");
+		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+  		
+		preparedStatement.setLong(4, id);
+		preparedStatement.setByte(1, salutation);
+		preparedStatement.setString(2, firstName);
+		preparedStatement.setString(3, lastName);
+  		
+  		boolean result=		preparedStatement.execute();
+		
+		return result;
+	}
+	
+	
+	
+	
+	
+	
 	
 	public Person get(long id) throws SQLException {
 		Statement statement = connection.createStatement();							// Öffnet ein Abfragekanal zur Datenbank für genau ein Statment
-		resultSet = statement.executeQuery( "select * from personen where id="+id);
+		ResultSet resultSet = statement.executeQuery( "select * from personen where id="+id);
 		if (resultSet.next()) {
 			Person person = new Person (
 					resultSet.getLong(1), 
@@ -114,7 +137,7 @@ public class PersonRepository {
 	
 	public ArrayList getAll() throws SQLException {
 		Statement statement = connection.createStatement();							// Öffnet ein Abfragekanal zur Datenbank für genau ein Statment
-		resultSet = statement.executeQuery( "select * from personen");
+		ResultSet resultSet = statement.executeQuery( "select * from personen");
 		ArrayList arrayList= new ArrayList();
 		
 		while (resultSet.next()) {
@@ -131,10 +154,7 @@ public class PersonRepository {
 	
 	
 	
-	public boolean update(Person person) {
-		return false;
-	}
-	
+
 	
 	
 	public boolean delete(Person person) throws SQLException {

@@ -93,14 +93,12 @@ public class SeminarApp {
 			
 			
  			// Person in die Datenbank eintragen
-			
-			String salutation=	"MR";
-			String firstName=	"Roland";
-			String lastName=	"Hoeppner";
-
-					
+						
 			try {
-				long id=			personRepository.maxId()+1;
+				long id=			-1L;
+				String salutation=	"MR";
+				String firstName=	"Roland";
+				String lastName=	"Hoeppner";
 	
 				Person person = new Person (id, salutation, firstName, lastName);
 				boolean result = personRepository.create(person);
@@ -112,6 +110,26 @@ public class SeminarApp {
 			
 			
 
+			
+ 			// Person in die Datenbank ändern
+				
+			try {
+				long id=			18L;
+				String salutation=	"MR";
+				String firstName=	"Karl";
+				String lastName=	"Tool";
+
+				Person person = new Person (id, salutation, firstName, lastName);
+				boolean result = personRepository.update(person);
+
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+					
+			
+			
 	
 		
 		
