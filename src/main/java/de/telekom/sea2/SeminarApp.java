@@ -27,7 +27,7 @@ public class SeminarApp {
 		
 			// Abruf einer einzelnen Person	
 			try {
-				Person person = personRepository.get(2);
+				Person person = personRepository.get(3);
 				
 				String string= String.format("%s %s %s %s", 
 						person.getId(),
@@ -68,7 +68,7 @@ public class SeminarApp {
 				e.printStackTrace();
 			}
 			
-			
+	/*		
 			// Löschen einer einzelner Person
 			try {
 				boolean result = personRepository.delete(1);
@@ -93,15 +93,16 @@ public class SeminarApp {
 			
 			
  			// Person in die Datenbank eintragen
-			long id=			12L;
+			
 			String salutation=	"MR";
 			String firstName=	"Roland";
 			String lastName=	"Hoeppner";
-			
-			Person person = new Person (id, salutation, firstName, lastName);
-			
-			
+
+					
 			try {
+				long id=			personRepository.maxId()+1;
+	
+				Person person = new Person (id, salutation, firstName, lastName);
 				boolean result = personRepository.create(person);
 
 			} catch (Exception e) {

@@ -73,7 +73,7 @@ public class PersonRepository {
 	// Prepstatment	
 	public boolean create(Person person) throws SQLException {
 		
-		long id=			maxId()+1;
+		long id=			person.getId();
 		byte salutation =	person.getSalutation().toByte();	// es wird erst die Methode getSalutation und im Anschluss toByte aufgerufen
 		String firstName=	person.getFirstname();
 		String lastName=	person.getLastname();
