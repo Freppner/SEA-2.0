@@ -40,7 +40,7 @@ public enum Salutation {
 			case 1:
 				 return MRS;
 
-			case 3:
+			case 2:
 				 return OTHER;
 
 			default: throw new IllegalArgumentException("Es wurde ein nicht definierter Wert in das Feld Salutation eingegeben: "+bite);

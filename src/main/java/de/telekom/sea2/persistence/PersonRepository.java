@@ -34,6 +34,20 @@ public class PersonRepository {
 	
 	
 	
+	
+	// Hoechste ID in der DB bestimmen.
+	public long maxId() throws SQLException {
+		Statement statement = connection.createStatement();	
+		String sql=			("select max (id) from personen");
+		resultSet = statement.executeQuery(sql);
+		resultSet.next();
+		return resultSet.getLong(1);
+	}
+	
+	
+	
+	
+	
 /* Statment	
 	public boolean create(Person person) throws SQLException {
 		
@@ -51,15 +65,20 @@ public class PersonRepository {
 	}
 */
 	
+	
+	
+	
+	
+	
 	// Prepstatment	
 	public boolean create(Person person) throws SQLException {
 		
-		long id=			person.getId();
+		long id=			maxId()+1;
 		byte salutation =	person.getSalutation().toByte();	// es wird erst die Methode getSalutation und im Anschluss toByte aufgerufen
 		String firstName=	person.getFirstname();
 		String lastName=	person.getLastname();
 		
-		String sql=			("insert into personen ( ID, ANREDE, VORNAME, NACHNAME) values (?,?,?,?);");
+		String sql=			("insert into personen ( ID, ANREDE, VORNAME, NACHNAME) values (?,?,?,?)");
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
   		
 		preparedStatement.setLong(1, id);
@@ -67,15 +86,11 @@ public class PersonRepository {
 		preparedStatement.setString(3, firstName);
 		preparedStatement.setString(4, lastName);
   		
-  		boolean result=		preparedStatement.execute(sql);
+  		boolean result=		preparedStatement.execute();
 		
 		return result;
 	}
 
-	
-	
-	
-	
 	
 	
 	
@@ -133,6 +148,14 @@ public class PersonRepository {
 		boolean result = statement.execute( "delete from personen where id="+id);
 		return result;
 	}
+	
+	
+	public boolean deleteAll() throws SQLException {	
+		Statement statement = connection.createStatement();        
+		boolean result = statement.execute("delete from personen");     
+		return result;
+	}
+	
 	
 	
 	
