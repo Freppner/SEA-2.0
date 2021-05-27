@@ -45,15 +45,20 @@ public class MenuInput {
 		
 		String salutation;
 		do{
-			System.out.println("Anrede eingeben:");
+			System.out.println("Anrede eingeben (MR/MRS/OTHER/ABBRUCH):");
 			salutation=this.inputMenue();
 			System.out.println(salutation);
 
-			if (!salutation.equals("MR") && !salutation.equals("MRS") && !salutation.equals("OTHER") ) {
-				System.out.println("Falsche Eingabe... nur MR/MRS/OTHERS erlaubt");
+			if (!Salutation.isOK(salutation) && !salutation.equals("ABBRUCH")) {
+				System.out.println("Falsche Eingabe... nur MR/MRS/OTHERS/ABBRUCH erlaubt.");
+				System.out.println();
+				if (salutation.equals("ABBRUCH")) {
+					return;
+				}
+				
 			};
-		}while(!salutation.equals("MR") && !salutation.equals("MRS") && !salutation.equals("OTHER") );
-
+		}while(!Salutation.isOK(salutation));
+				
 		person.setSalutation(salutation);
 		System.out.println("Vorname eingeben:");
 		person.setFirstname (this.inputMenue());
@@ -70,10 +75,7 @@ public class MenuInput {
 			System.out.println("Teilnehmer wurde erfolgreich angelegt.");
 		} else {
 			System.out.println("Teilnehmer wurde nicht angelegt!");
-		}
-				
+		}			
 	}
-	
-	
 
 }

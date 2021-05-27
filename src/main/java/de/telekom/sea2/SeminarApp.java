@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import de.telekom.sea2.gui.MenuInput;
 import de.telekom.sea2.gui.MenuOutputAll;
 import de.telekom.sea2.gui.MenuOutputOne;
+import de.telekom.sea2.gui.MenuUpdateOne;
 import de.telekom.sea2.gui.Menue;
 import de.telekom.sea2.model.Person;
 import de.telekom.sea2.persistence.PersonRepository;
@@ -133,7 +134,7 @@ public class SeminarApp {
 			*/
 			
 			
-			
+			/*
 			MenuInput menuInput= new MenuInput(personRepository);
 			menuInput.inputPerson();
 			
@@ -142,8 +143,15 @@ public class SeminarApp {
 			
 			
 			MenuOutputOne  menuOutputOne = new MenuOutputOne (personRepository);
-			menuOutputOne.outputPersons();
+			menuOutputOne.outputPerson();
 			
+			*/
+			
+			MenuUpdateOne  menuUpdateOne = new MenuUpdateOne (personRepository);
+			menuUpdateOne.updatePerson();
+			
+			MenuOutputAll menuOutputAll= new MenuOutputAll(personRepository);
+			menuOutputAll.outputAllPersons();
 			
 			
 

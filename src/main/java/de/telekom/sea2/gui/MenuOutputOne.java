@@ -25,7 +25,7 @@ public class MenuOutputOne {
 
 	
 	
-	public void outputPersons() {
+	public void outputPerson() {
 		String stringId;
 
 		System.out.println("ID Eingeben:");

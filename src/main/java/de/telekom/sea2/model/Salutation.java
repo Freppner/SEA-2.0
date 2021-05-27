@@ -31,6 +31,28 @@ public enum Salutation {
 	}
 	
 	
+	
+	public static boolean isOK ( String string ) {
+		
+		switch (string.toUpperCase()) {
+			case "MR":
+			case "MISTER":
+			case "HERR":
+		
+			case "MRS":
+			case "MISSES":
+			case "FRAU":
+				 
+			case "OTHER":
+			case "DIVERS":
+					return true;
+			default: 
+					return false;
+		}
+	}
+	
+	
+	
 	public static Salutation fromByte( Byte bite ) {
 		
 		switch (bite) {
