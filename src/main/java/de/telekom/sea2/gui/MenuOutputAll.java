@@ -23,7 +23,7 @@ public class MenuOutputAll {
 	
 	public void outputAllPersons() {
 		try {
-			ArrayList<Person> personListAll = personRepository.getAll();
+			ArrayList personListAll = personRepository.getAll();
 			
 			System.out.println("___________________________________________________________________");
 			for (int i = 0; i < personListAll.size(); i++) {

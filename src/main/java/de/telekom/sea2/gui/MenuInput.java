@@ -43,17 +43,16 @@ public class MenuInput {
 			return;
 		}*/
 		
-		String salutation="";
+		String salutation;
 		do{
 			System.out.println("Anrede eingeben:");
 			salutation=this.inputMenue();
 			System.out.println(salutation);
-			if (salutation="MR") System.out.println("Richtig");
-			
-			if (salutation!="MR" && salutation!="MRS" && salutation!="OTHER" ) {
+
+			if (!salutation.equals("MR") && !salutation.equals("MRS") && !salutation.equals("OTHER") ) {
 				System.out.println("Falsche Eingabe... nur MR/MRS/OTHERS erlaubt");
-			}
-		}while(salutation!="MR" && salutation!="MRS" && salutation!="OTHER" );
+			};
+		}while(!salutation.equals("MR") && !salutation.equals("MRS") && !salutation.equals("OTHER") );
 
 		person.setSalutation(salutation);
 		System.out.println("Vorname eingeben:");

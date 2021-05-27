@@ -14,7 +14,6 @@ public class Menue {
 		this.personRepository=personRepository;	
 	}
 	
-
 	
 	java.util.Scanner scanner = new java.util.Scanner(System.in);
 	
