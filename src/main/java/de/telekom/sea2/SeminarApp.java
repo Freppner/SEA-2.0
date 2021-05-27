@@ -3,6 +3,8 @@ package de.telekom.sea2;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import de.telekom.sea2.gui.MenuInput;
+import de.telekom.sea2.gui.MenuOutputAll;
 import de.telekom.sea2.gui.Menue;
 import de.telekom.sea2.model.Person;
 import de.telekom.sea2.persistence.PersonRepository;
@@ -10,7 +12,7 @@ import de.telekom.sea2.persistence.PersonRepository;
 
 
 public class SeminarApp {
-	public void run (String[] args) {
+	public void run (String[] args) throws SQLException {
 
 		
 		
@@ -45,7 +47,7 @@ public class SeminarApp {
 			}
 
 			
-
+/*
 			// Abruf aller Personen
 			try {
 				ArrayList personListAll = personRepository.getAll();
@@ -79,7 +81,7 @@ public class SeminarApp {
 			}
 		
 		
-/*
+
 			// Loeschen aller Eintraege
 			try {
 				boolean result = personRepository.deleteAll();
@@ -89,7 +91,7 @@ public class SeminarApp {
 				e.printStackTrace();
 			}
 
-			*/
+			
 			
 			
  			// Person in die Datenbank eintragen
@@ -114,7 +116,7 @@ public class SeminarApp {
  			// Person in die Datenbank ändern
 				
 			try {
-				long id=			18L;
+				long id=			26L;
 				String salutation=	"MR";
 				String firstName=	"Karl";
 				String lastName=	"Tool";
@@ -127,15 +129,24 @@ public class SeminarApp {
 				e.printStackTrace();
 			}
 			
-					
+			*/
 			
 			
-	
+			
+			//MenuInput menuInput= new MenuInput(personRepository);
+			//menuInput.inputPerson();
+			
+			MenuOutputAll menuOutputAll= new MenuOutputAll(personRepository);
+			menuOutputAll.outputAllPersons();
+
+			
+			
+			//Menue menue = new Menue(personRepository );									// Sicherungsseil für Fehler try-with-ressources
+																					// es wird das Close in der Klasse Menue ausgeführt
+			//menue.keppAsking();
 		
 		
 		
-		//Menue menue = new Menue();
-		//menue.keppAsking();
 		
 	}
 
