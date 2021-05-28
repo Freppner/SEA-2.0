@@ -28,7 +28,7 @@ public class SeminarApp {
 				e1.printStackTrace();
 			}
 		
-		
+		/*
 			// Abruf einer einzelnen Person	
 			try {
 				Person person = personRepository.get(3);
@@ -132,26 +132,61 @@ public class SeminarApp {
 			}
 			
 			*/
+		
+			/*---------------------------------------------------------------------------------------------------------			
+			/*---------------------------------------------------------------------------------------------------------
+	
+	
+	
+	
+	
+			/* Umgesetzte und nur auskommentiert
 			
 			
-			/*
+			// Anlegen einer neuen Person
 			MenuInput menuInput= new MenuInput(personRepository);
 			menuInput.inputPerson();
 			
-			MenuOutputAll menuOutputAll= new MenuOutputAll(personRepository);
-			menuOutputAll.outputAllPersons();
 			
-			
+			// Ausgeben einer einzelnen Person
 			MenuOutputOne  menuOutputOne = new MenuOutputOne (personRepository);
 			menuOutputOne.outputPerson();
 			
+			
+			// Ausgeben aller Personen
+			MenuOutputAll menuOutputAll= new MenuOutputAll(personRepository);
+			menuOutputAll.outputAllPersons();
+						
 			*/
 			
+			
+			
+			
+			// Aendern einer einzelnen Person
 			MenuUpdateOne  menuUpdateOne = new MenuUpdateOne (personRepository);
 			menuUpdateOne.updatePerson();
 			
+			
+			// Ausgeben aller Personen
 			MenuOutputAll menuOutputAll= new MenuOutputAll(personRepository);
 			menuOutputAll.outputAllPersons();
+			
+			
+			// Loeschen einer einzlenen Person
+			
+			// Loeschen aller Peronen in der Tabelle
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			
 			
 
