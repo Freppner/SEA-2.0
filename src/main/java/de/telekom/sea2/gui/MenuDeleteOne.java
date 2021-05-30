@@ -2,6 +2,7 @@ package de.telekom.sea2.gui;
 
 import java.sql.SQLException;
 
+import de.telekom.sea2.SeminarApp;
 import de.telekom.sea2.model.Person;
 import de.telekom.sea2.model.Salutation;
 import de.telekom.sea2.persistence.PersonRepository;
@@ -16,7 +17,7 @@ public class MenuDeleteOne {
 	
 	
 	public MenuDeleteOne  (PersonRepository personRepository) {
-		this.personRepository=personRepository;	
+		this.personRepository=SeminarApp.getSeminarApp().getPersonRepository();	
 	}
 	
 	
