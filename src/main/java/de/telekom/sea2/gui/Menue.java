@@ -21,7 +21,7 @@ public class Menue {
 	
 
 	
-	public String inputMenue() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
+	public String inputZeile() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
 		var eingabe = scanner.next();
 		return eingabe;
 		}
@@ -33,7 +33,7 @@ public class Menue {
 		do {
 			System.out.println(System.lineSeparator().repeat(20));
 			this.showMenue();
-			result=this.inputMenue();
+			result=this.inputZeile();
 			this.checkMenue(result);
 		}while(!result.equals("0"));		
 	}
