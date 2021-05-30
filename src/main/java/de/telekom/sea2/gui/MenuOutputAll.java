@@ -2,6 +2,7 @@ package de.telekom.sea2.gui;
 
 import java.util.ArrayList;
 
+import de.telekom.sea2.SeminarApp;
 import de.telekom.sea2.model.Person;
 import de.telekom.sea2.persistence.PersonRepository;
 
@@ -13,11 +14,8 @@ public class MenuOutputAll {
 	private PersonRepository personRepository;
 		
 	public MenuOutputAll (PersonRepository personRepository) {
-		this.personRepository=personRepository;	
+		this.personRepository=SeminarApp.getSeminarApp().getPersonRepository();	
 	}
-	
-	
-
 	
 	
 	
