@@ -20,7 +20,7 @@ public class MenuOutputOne {
 	}
 	
 	
-	public String inputMenue() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
+	public String inputZeile() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
 		var eingabe = scanner.next();
 		return eingabe;
 		}
@@ -31,7 +31,7 @@ public class MenuOutputOne {
 		String stringId;
 
 		System.out.println("ID Eingeben:");
-		stringId= (this.inputMenue());
+		stringId= (this.inputZeile());
 		int id = Integer.parseInt(stringId);
 				
 		try {
