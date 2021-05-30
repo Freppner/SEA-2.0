@@ -16,27 +16,30 @@ import de.telekom.sea2.persistence.PersonRepository;
 
 
 public class SeminarApp {
+
 	
 	
 	private static SeminarApp seminarApp;
 	PersonRepository personRepository = new PersonRepository();
+	java.util.Scanner scanner = new java.util.Scanner(System.in);
 	
 	
 	public SeminarApp () {
 		seminarApp=this;
 	}
 	
-	
 	public static SeminarApp getSeminarApp () {
 		return seminarApp;
 	}
-		
 	
 	public PersonRepository getPersonRepository() {
 		return personRepository;
 	}
 	
 	
+	public java.util.Scanner getScanner() {
+		return scanner;
+	}
 	
 	
 	
@@ -44,9 +47,7 @@ public class SeminarApp {
 	
 	public void run (String[] args) throws SQLException {
 
-		
-		
-		
+			
 
 			try {
 				personRepository.dbInit();
