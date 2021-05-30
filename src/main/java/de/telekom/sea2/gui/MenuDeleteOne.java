@@ -13,15 +13,16 @@ import de.telekom.sea2.persistence.PersonRepository;
 public class MenuDeleteOne {
 
 	private PersonRepository personRepository;
-	
+	private java.util.Scanner scanner;
 	
 	
 	public MenuDeleteOne  (PersonRepository personRepository) {
-		this.personRepository=SeminarApp.getSeminarApp().getPersonRepository();	
+		this.personRepository	=SeminarApp.getSeminarApp().getPersonRepository();
+		this.scanner			=SeminarApp.getSeminarApp().getScanner();
 	}
+
 	
-	
-	java.util.Scanner scanner = new java.util.Scanner(System.in);
+
 	
 	public String inputMenue() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
 		var eingabe = scanner.next();
