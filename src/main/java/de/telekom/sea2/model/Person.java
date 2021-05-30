@@ -8,7 +8,9 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	
+	public Person () {
 
+	}
 	
 	
 	public Person (long id, Salutation salutation, String firstName, String lastName) {

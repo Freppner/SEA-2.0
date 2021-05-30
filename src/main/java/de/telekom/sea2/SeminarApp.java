@@ -3,6 +3,10 @@ package de.telekom.sea2;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import de.telekom.sea2.gui.MenuInput;
+import de.telekom.sea2.gui.MenuOutputAll;
+import de.telekom.sea2.gui.MenuOutputOne;
+import de.telekom.sea2.gui.MenuUpdateOne;
 import de.telekom.sea2.gui.Menue;
 import de.telekom.sea2.model.Person;
 import de.telekom.sea2.persistence.PersonRepository;
@@ -10,7 +14,7 @@ import de.telekom.sea2.persistence.PersonRepository;
 
 
 public class SeminarApp {
-	public void run (String[] args) {
+	public void run (String[] args) throws SQLException {
 
 		
 		
@@ -24,10 +28,10 @@ public class SeminarApp {
 				e1.printStackTrace();
 			}
 		
-		
+		/*
 			// Abruf einer einzelnen Person	
 			try {
-				Person person = personRepository.get(2);
+				Person person = personRepository.get(3);
 				
 				String string= String.format("%s %s %s %s", 
 						person.getId(),
@@ -45,7 +49,7 @@ public class SeminarApp {
 			}
 
 			
-
+/*
 			// Abruf aller Personen
 			try {
 				ArrayList personListAll = personRepository.getAll();
@@ -68,7 +72,7 @@ public class SeminarApp {
 				e.printStackTrace();
 			}
 			
-			
+	/*		
 			// Löschen einer einzelner Person
 			try {
 				boolean result = personRepository.delete(1);
@@ -79,7 +83,7 @@ public class SeminarApp {
 			}
 		
 		
-/*
+
 			// Loeschen aller Eintraege
 			try {
 				boolean result = personRepository.deleteAll();
@@ -89,19 +93,18 @@ public class SeminarApp {
 				e.printStackTrace();
 			}
 
-			*/
+			
 			
 			
  			// Person in die Datenbank eintragen
-			long id=			12L;
-			String salutation=	"MR";
-			String firstName=	"Roland";
-			String lastName=	"Hoeppner";
-			
-			Person person = new Person (id, salutation, firstName, lastName);
-			
-			
+						
 			try {
+				long id=			-1L;
+				String salutation=	"MR";
+				String firstName=	"Roland";
+				String lastName=	"Hoeppner";
+	
+				Person person = new Person (id, salutation, firstName, lastName);
 				boolean result = personRepository.create(person);
 
 			} catch (Exception e) {
@@ -111,12 +114,90 @@ public class SeminarApp {
 			
 			
 
+			
+ 			// Person in die Datenbank ändern
+				
+			try {
+				long id=			26L;
+				String salutation=	"MR";
+				String firstName=	"Karl";
+				String lastName=	"Tool";
+
+				Person person = new Person (id, salutation, firstName, lastName);
+				boolean result = personRepository.update(person);
+
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			*/
+		
+			/*---------------------------------------------------------------------------------------------------------			
+			/*---------------------------------------------------------------------------------------------------------
 	
+	
+	
+	
+	
+			/* Umgesetzte und nur auskommentiert
+			
+			
+			// Anlegen einer neuen Person
+			MenuInput menuInput= new MenuInput(personRepository);
+			menuInput.inputPerson();
+			
+			
+			// Ausgeben einer einzelnen Person
+			MenuOutputOne  menuOutputOne = new MenuOutputOne (personRepository);
+			menuOutputOne.outputPerson();
+			
+			
+			// Ausgeben aller Personen
+			MenuOutputAll menuOutputAll= new MenuOutputAll(personRepository);
+			menuOutputAll.outputAllPersons();
+						
+			*/
+			
+			
+			
+			
+			// Aendern einer einzelnen Person
+			MenuUpdateOne  menuUpdateOne = new MenuUpdateOne (personRepository);
+			menuUpdateOne.updatePerson();
+			
+			
+			// Ausgeben aller Personen
+			MenuOutputAll menuOutputAll= new MenuOutputAll(personRepository);
+			menuOutputAll.outputAllPersons();
+			
+			
+			// Loeschen einer einzlenen Person
+			
+			// Loeschen aller Peronen in der Tabelle
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+			//Menue menue = new Menue(personRepository );									// Sicherungsseil für Fehler try-with-ressources
+																					// es wird das Close in der Klasse Menue ausgeführt
+			//menue.keppAsking();
 		
 		
 		
-		//Menue menue = new Menue();
-		//menue.keppAsking();
 		
 	}
 
