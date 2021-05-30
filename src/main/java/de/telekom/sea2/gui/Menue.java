@@ -3,6 +3,7 @@ package de.telekom.sea2.gui;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import de.telekom.sea2.SeminarApp;
 import de.telekom.sea2.persistence.PersonRepository;
 
 public class Menue {
@@ -11,7 +12,7 @@ public class Menue {
 	private PersonRepository personRepository;
 	
 	public Menue (PersonRepository personRepositrory) {
-		this.personRepository=personRepository;	
+		this.personRepository=SeminarApp.getSeminarApp().getPersonRepository();	
 	}
 	
 	
