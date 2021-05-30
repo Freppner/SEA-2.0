@@ -2,6 +2,7 @@ package de.telekom.sea2.gui;
 
 import java.util.ArrayList;
 
+import de.telekom.sea2.SeminarApp;
 import de.telekom.sea2.model.Person;
 import de.telekom.sea2.persistence.PersonRepository;
 
@@ -10,13 +11,14 @@ import de.telekom.sea2.persistence.PersonRepository;
 public class MenuOutputOne {
 	
 	private PersonRepository personRepository;
+	java.util.Scanner scanner;
+	
 	
 	public MenuOutputOne (PersonRepository personRepository) {
-		this.personRepository=personRepository;	
+		this.personRepository	=SeminarApp.getSeminarApp().getPersonRepository();
+		this.scanner			=SeminarApp.getSeminarApp().getScanner();
 	}
 	
-	
-	java.util.Scanner scanner = new java.util.Scanner(System.in);
 	
 	public String inputMenue() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
 		var eingabe = scanner.next();
