@@ -2,6 +2,7 @@ package de.telekom.sea2.gui;
 
 import java.sql.SQLException;
 
+import de.telekom.sea2.SeminarApp;
 import de.telekom.sea2.model.Person;
 import de.telekom.sea2.model.Salutation;
 import de.telekom.sea2.persistence.PersonRepository;
@@ -12,17 +13,18 @@ import de.telekom.sea2.persistence.PersonRepository;
 public class MenuDeleteOne {
 
 	private PersonRepository personRepository;
-	
+	private java.util.Scanner scanner;
 	
 	
 	public MenuDeleteOne  (PersonRepository personRepository) {
-		this.personRepository=personRepository;	
+		this.personRepository	=SeminarApp.getSeminarApp().getPersonRepository();
+		this.scanner			=SeminarApp.getSeminarApp().getScanner();
 	}
+
 	
+
 	
-	java.util.Scanner scanner = new java.util.Scanner(System.in);
-	
-	public String inputMenue() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
+	public String inputZeile() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
 		var eingabe = scanner.next();
 		return eingabe;
 		}
@@ -34,7 +36,7 @@ public class MenuDeleteOne {
 		boolean result=false;
 
 		System.out.println("ID Eingeben:");
-		stringId= (this.inputMenue());
+		stringId= (this.inputZeile());
 		int id = Integer.parseInt(stringId);
 		Person person = new Person();
 				

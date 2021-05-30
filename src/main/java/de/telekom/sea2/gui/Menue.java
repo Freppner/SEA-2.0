@@ -3,21 +3,25 @@ package de.telekom.sea2.gui;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import de.telekom.sea2.SeminarApp;
 import de.telekom.sea2.persistence.PersonRepository;
 
 public class Menue {
 	
 	
 	private PersonRepository personRepository;
+	private java.util.Scanner scanner;
+	
 	
 	public Menue (PersonRepository personRepositrory) {
-		this.personRepository=personRepository;	
+		this.personRepository	=SeminarApp.getSeminarApp().getPersonRepository();
+		this.scanner			=SeminarApp.getSeminarApp().getScanner();
 	}
 	
 	
-	java.util.Scanner scanner = new java.util.Scanner(System.in);
+
 	
-	public String inputMenue() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
+	public String inputZeile() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
 		var eingabe = scanner.next();
 		return eingabe;
 		}
@@ -29,7 +33,7 @@ public class Menue {
 		do {
 			System.out.println(System.lineSeparator().repeat(20));
 			this.showMenue();
-			result=this.inputMenue();
+			result=this.inputZeile();
 			this.checkMenue(result);
 		}while(!result.equals("0"));		
 	}

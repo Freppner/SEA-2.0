@@ -2,6 +2,7 @@ package de.telekom.sea2.gui;
 
 
 import de.telekom.sea2.model.Salutation;
+import de.telekom.sea2.SeminarApp;
 import de.telekom.sea2.model.Person;
 import de.telekom.sea2.persistence.PersonRepository;
 
@@ -11,17 +12,16 @@ import java.sql.SQLException;
 public class MenuInput {
 	
 	private PersonRepository personRepository;
+	private java.util.Scanner scanner;
 	
 	
 	public MenuInput(PersonRepository personRepository) {
-		this.personRepository=personRepository;
+		this.personRepository	=SeminarApp.getSeminarApp().getPersonRepository();
+		this.scanner			=SeminarApp.getSeminarApp().getScanner();
 	}
 
 	
-	
-	java.util.Scanner scanner = new java.util.Scanner(System.in);
-	
-	public String inputMenue() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
+	public String inputZeile() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
 		var eingabe = scanner.next();
 		return eingabe;
 		}
@@ -46,7 +46,7 @@ public class MenuInput {
 		String salutation;
 		do{
 			System.out.println("Anrede eingeben (MR/MRS/OTHER/ABBRUCH):");
-			salutation=this.inputMenue();
+			salutation=this.inputZeile();
 			System.out.println(salutation);
 
 			if (!Salutation.isOK(salutation) && !salutation.equals("ABBRUCH")) {
@@ -61,9 +61,9 @@ public class MenuInput {
 				
 		person.setSalutation(salutation);
 		System.out.println("Vorname eingeben:");
-		person.setFirstname (this.inputMenue());
+		person.setFirstname (this.inputZeile());
 		System.out.println("Nachname eingeben:");
-		person.setLastname(this.inputMenue());
+		person.setLastname(this.inputZeile());
 		
 		try {
 			result = personRepository.create(person);	// ??? Ohne 'new' -> static ???

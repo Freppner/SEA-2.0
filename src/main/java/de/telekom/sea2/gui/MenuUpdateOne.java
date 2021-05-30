@@ -2,6 +2,7 @@ package de.telekom.sea2.gui;
 
 import java.sql.SQLException;
 
+import de.telekom.sea2.SeminarApp;
 import de.telekom.sea2.model.Person;
 import de.telekom.sea2.model.Salutation;
 import de.telekom.sea2.persistence.PersonRepository;
@@ -11,20 +12,25 @@ import de.telekom.sea2.persistence.PersonRepository;
 public class MenuUpdateOne {
 
 		private PersonRepository personRepository;
+		private java.util.Scanner scanner;
 		
 		
 		
-		public MenuUpdateOne (PersonRepository personRepository) {
-			this.personRepository=personRepository;	
+		public MenuUpdateOne () {
+			this.personRepository	=SeminarApp.getSeminarApp().getPersonRepository();
+			this.scanner			=SeminarApp.getSeminarApp().getScanner(); 
 		}
 		
 		
-		java.util.Scanner scanner = new java.util.Scanner(System.in);
 		
-		public String inputMenue() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
+		
+		public String inputZeile() {					// Nimmt die Usereingabe entgegen
 			var eingabe = scanner.next();
 			return eingabe;
 			}
+
+		
+
 	
 	
 		
@@ -34,7 +40,7 @@ public class MenuUpdateOne {
 			boolean result=false;
 
 			System.out.println("ID Eingeben:");
-			stringId= (this.inputMenue());
+			stringId= (this.inputZeile());
 			int id = Integer.parseInt(stringId);
 			Person person = new Person();
 					
@@ -61,7 +67,7 @@ public class MenuUpdateOne {
 			String salutation;
 			do{
 				System.out.println("Anrede eingeben (MR/MRS/OTHER/ABBRUCH):");
-				salutation=this.inputMenue();
+				salutation=this.inputZeile();
 				System.out.println(salutation);
 
 				if (!Salutation.isOK(salutation) && !salutation.equals("ABBRUCH")) {
@@ -76,9 +82,9 @@ public class MenuUpdateOne {
 					
 			person.setSalutation(salutation);
 			System.out.println("Vorname eingeben:");
-			person.setFirstname (this.inputMenue());
+			person.setFirstname (this.inputZeile());
 			System.out.println("Nachname eingeben:");
-			person.setLastname(this.inputMenue());
+			person.setLastname(this.inputZeile());
 			
 			try {
 				result = personRepository.update(person);	// ??? Ohne 'new' -> static ???

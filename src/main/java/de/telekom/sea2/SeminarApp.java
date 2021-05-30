@@ -3,6 +3,8 @@ package de.telekom.sea2;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import de.telekom.sea2.gui.MenuDeleteAll;
+import de.telekom.sea2.gui.MenuDeleteOne;
 import de.telekom.sea2.gui.MenuInput;
 import de.telekom.sea2.gui.MenuOutputAll;
 import de.telekom.sea2.gui.MenuOutputOne;
@@ -14,12 +16,38 @@ import de.telekom.sea2.persistence.PersonRepository;
 
 
 public class SeminarApp {
+
+	
+	
+	private static SeminarApp seminarApp;
+	PersonRepository personRepository = new PersonRepository();
+	java.util.Scanner scanner = new java.util.Scanner(System.in);
+	
+	
+	public SeminarApp () {
+		seminarApp=this;
+	}
+	
+	public static SeminarApp getSeminarApp () {
+		return seminarApp;
+	}
+	
+	public PersonRepository getPersonRepository() {
+		return personRepository;
+	}
+	
+	
+	public java.util.Scanner getScanner() {
+		return scanner;
+	}
+	
+	
+	
+	
+	
 	public void run (String[] args) throws SQLException {
 
-		
-		
-		PersonRepository personRepository = new PersonRepository();
-		
+			
 
 			try {
 				personRepository.dbInit();
@@ -163,27 +191,33 @@ public class SeminarApp {
 			
 			
 			// Aendern einer einzelnen Person
-			MenuUpdateOne  menuUpdateOne = new MenuUpdateOne (personRepository);
+			MenuUpdateOne  menuUpdateOne = new MenuUpdateOne ();
 			menuUpdateOne.updatePerson();
 			
-			
+			/*
 			// Ausgeben aller Personen
 			MenuOutputAll menuOutputAll= new MenuOutputAll(personRepository);
 			menuOutputAll.outputAllPersons();
 			
+	
+			// Loeschen einer Personen
+			MenuDeleteOne menuDeleteOne= new MenuDeleteOne(personRepository);
+			menuDeleteOne.deletePerson();
+			
+			
+		
+			// Loeschen aller Peronen in der Tabelle
+			MenuDeleteAll menuDeleteAll= new MenuDeleteAll(personRepository);
+			menuDeleteAll.deleteAllPersons();
+			
+			
+			
 			
 			// Loeschen einer einzlenen Person
 			
-			// Loeschen aller Peronen in der Tabelle
+*/
 			
-			
-			
-			
-			
-			
-			
-			
-			
+						
 			
 			
 			
