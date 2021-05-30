@@ -24,7 +24,7 @@ public class MenuDeleteOne {
 	
 
 	
-	public String inputMenue() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
+	public String inputZeile() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
 		var eingabe = scanner.next();
 		return eingabe;
 		}
@@ -36,7 +36,7 @@ public class MenuDeleteOne {
 		boolean result=false;
 
 		System.out.println("ID Eingeben:");
-		stringId= (this.inputMenue());
+		stringId= (this.inputZeile());
 		int id = Integer.parseInt(stringId);
 		Person person = new Person();
 				
