@@ -2,6 +2,7 @@ package de.telekom.sea2.gui;
 
 import java.sql.SQLException;
 
+import de.telekom.sea2.SeminarApp;
 import de.telekom.sea2.model.Person;
 import de.telekom.sea2.model.Salutation;
 import de.telekom.sea2.persistence.PersonRepository;
@@ -14,9 +15,10 @@ public class MenuUpdateOne {
 		
 		
 		
-		public MenuUpdateOne (PersonRepository personRepository) {
-			this.personRepository=personRepository;	
+		public MenuUpdateOne () {
+			this.personRepository=SeminarApp.getSeminarApp().getPersonRepository();	
 		}
+		
 		
 		
 		java.util.Scanner scanner = new java.util.Scanner(System.in);
