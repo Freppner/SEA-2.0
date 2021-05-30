@@ -10,13 +10,16 @@ public class Menue {
 	
 	
 	private PersonRepository personRepository;
+	private java.util.Scanner scanner;
+	
 	
 	public Menue (PersonRepository personRepositrory) {
-		this.personRepository=SeminarApp.getSeminarApp().getPersonRepository();	
+		this.personRepository	=SeminarApp.getSeminarApp().getPersonRepository();
+		this.scanner			=SeminarApp.getSeminarApp().getScanner();
 	}
 	
 	
-	java.util.Scanner scanner = new java.util.Scanner(System.in);
+
 	
 	public String inputMenue() {					// Nimmt die Usereingabe aus dem Hauptmenue entgegen
 		var eingabe = scanner.next();
