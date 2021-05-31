@@ -34,7 +34,7 @@ public class Menue {
 			System.out.println(System.lineSeparator().repeat(20));
 			this.showMenue();
 			result=this.inputZeile();
-			this.checkMenue(result);
+			//this.checkMenue(result);
 		}while(!result.equals("0"));		
 	}
 
